@@ -16,7 +16,7 @@ public class RequestNetworkImp implements RequestNetwork {
     public static final String TAG = "RequestNetworkImp";
 
     @Override
-    public void login(String name, String password, OnLoginListener listener) {
+    public void login(String name, String password, final OnLoginListener listener) {
         try {
             Log.i(TAG, "login: 正在登录");
             Log.i(TAG, "login: name = " + name + ",password =" + password);
@@ -24,7 +24,7 @@ public class RequestNetworkImp implements RequestNetwork {
                 listener.onFailed(-1, "账号或密码为空");
                 return;
             }
-            Thread.sleep(2000);
+            Thread.sleep(200);
         } catch (InterruptedException e) {
             e.printStackTrace();
             listener.onFailed(500, "服务器坏了");
